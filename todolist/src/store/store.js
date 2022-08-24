@@ -3,7 +3,9 @@ import {reducer} from "./todos/reducer";
 
 
 export const reducers = combineReducers({
-    ...reducer
+    reducer: {
+        todos: reducer,
+    }
 })
 
 export const store = createStore(reducer);

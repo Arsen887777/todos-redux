@@ -1,7 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import {TodoInput} from "./components/TodoInput";
+import {AddTodo} from "./components/AddTodo";
 import {Todos} from "./components/Todos";
 
 
@@ -13,7 +13,7 @@ function App() {
             TODOS
         </p>
           <Todos/>
-          <TodoInput/>
+          <AddTodo/>
       </header>
     </div>
   );

@@ -1,18 +1,18 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {v4} from "uuid";
-import {dispatchTodo} from "../redux/action";
+import {addTodo} from "../store/todos/action";
 
-export const TodoInput = () => {
+export const AddTodo = () => {
     const dispatch = useDispatch();
     const [newTodo, setNewTodo] = useState('');
     const [isAdding, setIsAdding] = useState(false);
-    const handleChange = event => setNewTodo(event.target.value);
 
+    const handleChange = event => setNewTodo(event.target.value);
 
     const handleClick = () => {
         setIsAdding(!isAdding);
-        dispatch(dispatchTodo({
+        dispatch(addTodo({
             id: v4(),
             title: newTodo,
         }))
