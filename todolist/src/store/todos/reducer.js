@@ -19,12 +19,21 @@ export const reducer = (state = initialState, action) => {
                 todos: state.todos.filter(todo => todo.id !== action.payload),
             };
 
-        case EDIT_TODO :
+        case EDIT_TODO:
+            if (state.id !== action.id) {
+                return state;
+            }
+
             return {
                 ...state,
-                todos: [state.todos.map(todo => action.payload.id === todo.id ?
-                       {...todo, title: action.payload.title} : todo)]
-            }
+                title: action.title
+            };
+        default:
+            return state;   } }; const todos = (state = [], action) => {   switch (action.type) {
+    case EDIT_TODO:
+        return state.map(t =>
+            todos(t, action)
+        );
         default:
             return state;
     }
