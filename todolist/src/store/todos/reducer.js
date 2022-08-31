@@ -23,17 +23,10 @@ export const reducer = (state = initialState, action) => {
             if (state.id !== action.id) {
                 return state;
             }
-
             return {
                 ...state,
                 title: action.title
             };
-        default:
-            return state;   } }; const todos = (state = [], action) => {   switch (action.type) {
-    case EDIT_TODO:
-        return state.map(t =>
-            todos(t, action)
-        );
         default:
             return state;
     }
